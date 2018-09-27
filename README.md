@@ -1,12 +1,10 @@
-# Clothes_website
+#Mirror
 
+2 libraries one for Speech and action / Google calendar
 
-Starter developement template 
+to run server just type 
+-> Node index.js
+Go to url localhost:3000(Mostly)
 
-Node packages(Used)
-Express
-EJS(Embedded javascript)
-Mongo DB
-
-CSS framework
-SCSS
+Voices that work
+(Hide Events,Show Events,On,Off)
