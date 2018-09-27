@@ -1,0 +1,46 @@
+/* Other css  imports */
+@import 'partials/layout';
+@import 'partials/components';
+@import 'partials/event_component';
+
+
+/* Fonts import*/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Rubik');
+
+$background-color:black;
+$color: white;
+
+* {
+    box-sizing: border-box;
+    color:$color;
+}
+
+body{
+    background: $background-color;
+}
+
+@mixin font{
+    font-family: 'Rubik', sans-serif;
+    font-size: 3rem;
+    font-weight:300;
+}
+
+h1{
+    @include font;
+}
+
+h2{
+    @include font;
+    font-size: 2rem;
+}
+
+p{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
+}
+
+ul {
+    list-style: none;
+  }
+
+

@@ -1,0 +1,100 @@
+<footer>
+</footer>
+<script src="js/format-google-calendar.js"></script>
+<script src="js/artyom.window.js"></script>
+    <script>
+
+
+      /*---------------------------------------------------------------------
+      ------------------- Calendar implementation ----------------------------
+      ------------------------------------------------------------------------*/
+
+
+    function calendar_start(){
+    
+       $('.calendar_temp').remove();
+        $('li').remove();
+        $('.calendar_temp_past').remove();
+        $('.calendar_temp_past').hide();
+        $('#events-past').hide();
+        
+
+      formatGoogleCalendar.init({
+        calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/akilanselva@hotmail.com/events?key=AIzaSyCX5ji8PFOAW54L0jg6_2xTVZdEnYpbMFk',
+        past: true,
+        upcoming: true,
+        sameDayTimes: true,
+        pastTopN: 20,
+        upcomingTopN: 20,
+        recurringEvents: true,
+        itemsTagName: 'li',
+        upcomingSelector: '#events-upcoming',
+        pastSelector: '#events-past',
+        upcomingHeading: '<h2 class="calendar_temp">Upcoming events</h2>',
+        pastHeading: '<h2 class="calendar_temp_past" style="color:black">Past events</h2>',
+        format: ['*date*',': ','<br>', '*summary*','<br>', ' &mdash; ', '*description*','<br>',  '*location*'],
+        timeMin: '2016-06-03T10:00:00-07:00',
+        timeMax: '2020-06-03T10:00:00-07:00'
+      });
+      setTimeout(calendar_start,20000)
+    }
+    calendar_start();
+
+
+    /*------------------------------------------------------------------------------
+    -----------------------------------Assistant Implementation---------------------
+    --------------------------------------------------------------------------------*/
+
+ var artyom = new Artyom();
+
+artyom.addCommands([
+    {
+        // Triggered only when you say "Jarvis Good Morning"
+        indexes: ["Hide events","Hi events","HYD events","hi defence","hi difference"],
+        action: () => {
+          artyom.say("Hiding Events");
+          $('#schedule').fadeOut();
+        }
+    },
+    {
+      indexes: ["Show Events"],
+        action: () => {
+          artyom.say("Showing Events");
+          $('#schedule').fadeIn();
+        }
+    },
+    {
+      indexes: ["How is Hind","How is hindi","How is him","How is in"],
+        action: () => {
+          artyom.say("In her sight she is good");
+          $('#schedule').fadeIn();
+        }
+    },
+    {
+      indexes: ["of"],
+        action: () => {
+          artyom.say("Mirror off");
+          $('.row').fadeOut();
+        }
+    },
+    {
+      indexes: ["on"],
+        action: () => {
+          artyom.say("Mirror on");
+          $('.row').fadeIn();
+        }
+    }
+    
+]);
+
+artyom.initialize({
+    // Initialize with some default setup
+    lang: "en-GB",
+    debug: true,
+    listen: true,
+    continuous: true,
+    // Give a name to your assistant !
+});
+    </script>
+</body>
+</html>
